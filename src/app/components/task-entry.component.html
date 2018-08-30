@@ -3,15 +3,15 @@
 </p> -->
 <mat-card>
   <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
-    <mat-card-header>
+    <mat-card-header > 
 
-      <mat-card-title>NEW TASK</mat-card-title>
+      <mat-card-title [ngStyle]="{'border-style':'solid','background-color':'#a17cd9','padding':'15px','width':'180px'}">NEW TASK ENTRY</mat-card-title>
 
     </mat-card-header>
   </div>
-  <mat-card-content>
+  <mat-card-content >
     <!-- <form #taskForm="ngForm" (ngSubmit)=addTask() fxlayout="row" fxLayoutAlign="end" fxLayoutGap="5px"> -->
-    <form #taskForm="ngForm" (ngSubmit)=addTask()>
+    <form #taskForm="ngForm" (ngSubmit)=addTask() >
       <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="5px">
         <mat-form-field>
           <input type="text" name="description" placeholder="Description" ngModel matInput required minlength="5" maxlength="10">
