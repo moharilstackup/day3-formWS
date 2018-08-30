@@ -50,7 +50,7 @@
 
       <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
         <mat-form-field>
-          <input matInput [matDatepicker]="datepicker"  placeholder="Due" #dueField="ngModel" ngModel name="due" required>
+          <input matInput [matDatepicker]="datepicker" placeholder="Due" #dueField="ngModel" ngModel name="due" required>
           <mat-datepicker-toggle matSuffix [for]="datepicker">
           </mat-datepicker-toggle>
           <mat-datepicker #datepicker>
@@ -76,12 +76,12 @@
         <li *ngFor="let item of taskList; let i = index;" style="margin-top: 10px">
           <!-- {{item.priority}} {{item.due}} -->
           <div style="border-style: solid;margin-right: 10px" fxLayout="column">
-            <div>
-              <h2>
-              {{item.description}}
-            </h2>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-between">
+            <!-- <div style="margin: 10px 10px 10px 10px"> -->
+              <h2 style="margin: 10px 10px 10px 10px">
+                {{item.description}}
+              </h2>
+            <!-- </div> -->
+            <div fxLayout="row" fxLayoutAlign="space-between" style="margin: 10px 10px 10px 10px">
               <div>
                 {{item.priority}}
               </div>
