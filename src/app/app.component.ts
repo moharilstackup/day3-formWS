@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'day3-formWS';
+  childdata="";
+  number=0;
+  onClicked(value: string) {
+    this.childdata=value;
+    this.number++;
+  }
 }

@@ -1,0 +1,99 @@
+<!-- <p>
+  task-entry works!
+</p> -->
+<mat-card>
+  <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
+    <mat-card-header>
+
+      <mat-card-title>NEW TASK</mat-card-title>
+
+    </mat-card-header>
+  </div>
+  <mat-card-content>
+    <!-- <form #taskForm="ngForm" (ngSubmit)=addTask() fxlayout="row" fxLayoutAlign="end" fxLayoutGap="5px"> -->
+    <form #taskForm="ngForm" (ngSubmit)=addTask()>
+      <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="5px">
+        <mat-form-field>
+          <input type="text" name="description" placeholder="Description" ngModel matInput required minlength="5" maxlength="10">
+        </mat-form-field>
+      </div>
+
+      <section fxLayout fxLayoutGap="1vw" fxLayoutAlign="end center">Priority:
+        <mat-radio-group name="priority" ngModel fxLayout="column" fxLayoutGap="1vh" fxLayoutAlign="end" required>
+          <!-- <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">Priority: -->
+          <mat-radio-button value="High">
+            High
+          </mat-radio-button>
+          <mat-radio-button value="Medium">
+            Medium
+          </mat-radio-button>
+          <mat-radio-button value="Low">
+            Low
+          </mat-radio-button>
+          <!-- </div> -->
+        </mat-radio-group>
+      </section>
+      <!--       <mat-radio-group name="priority" ngModel>
+        <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">Priority:
+          <mat-radio-button value="high">
+            High
+          </mat-radio-button>
+          <mat-radio-button value="medium">
+            Medium
+          </mat-radio-button>
+          <mat-radio-button value="low">
+            Low
+          </mat-radio-button>
+        </div>
+      </mat-radio-group> -->
+
+
+      <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
+        <mat-form-field>
+          <input matInput [matDatepicker]="datepicker"  placeholder="Due" #dueField="ngModel" ngModel name="due" required>
+          <mat-datepicker-toggle matSuffix [for]="datepicker">
+          </mat-datepicker-toggle>
+          <mat-datepicker #datepicker>
+
+          </mat-datepicker>
+          <mat-error *ngIf="dueField.hasError('required')">Your due is required</mat-error>
+        </mat-form-field>
+      </div>
+
+
+      <div fxLayout="row" fxLayoutAlign="end" fxLayoutGap="10px">
+        <button type="submit" mat-button mat-raised-button color="accent" [disabled]="taskForm.invalid">
+          <!-- <button type="submit" mat-button mat-raised-button color="accent" (click)="addTask()"> -->
+          Add
+        </button>
+      </div>
+    </form>
+
+    <div style="border-style: solid;margin-right: 10px;margin-top: 10px">
+      <!-- <p style="margin-left: 10px">TaskList</p> -->
+      <h1 style="margin-left: 10px">TaskList</h1>
+      <ul style="list-style: none">
+        <li *ngFor="let item of taskList; let i = index;" style="margin-top: 10px">
+          <!-- {{item.priority}} {{item.due}} -->
+          <div style="border-style: solid;margin-right: 10px" fxLayout="column">
+            <div>
+              <h2>
+              {{item.description}}
+            </h2>
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between">
+              <div>
+                {{item.priority}}
+              </div>
+
+              <div>
+                <!-- {{item.due._i.year}} -->
+                {{item.due.format('MM/DD/YYYY')}}
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </mat-card-content>
+</mat-card>
